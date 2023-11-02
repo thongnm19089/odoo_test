@@ -2,16 +2,16 @@
 from odoo import models, fields, api
 
 
-class quanlysach(models.Model):
-    _name = 'quanlysach.quanlysach'
+class Sach(models.Model):
+    _name = 'model_quanlysach'
+    _auto = True
     _description = 'quanlysach.quanlysach'
 
-    name = fields.Char()
-    value = fields.Integer()
-    value2 = fields.Float(compute="_value_pc", store=True)
-    description = fields.Text()
-
-    @api.depends('value')
-    def _value_pc(self):
-        for record in self:
-            record.value2 = float(record.value) / 100
+    ten_sach = fields.Char()
+    ngay_xuat_ban = fields.Char()
+    tac_gia = fields.Char()
+    mo_ta = fields.Char()
+    # @api.depends('value')
+    # def _value_pc(self):
+    #     for record in self:
+    #         record.value2 = float(record.value) / 100
