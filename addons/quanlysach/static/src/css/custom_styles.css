@@ -1,0 +1,8 @@
+.custom-background {
+    background-image: url('/quanlysach/static/src/img/bia.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+    border-radius: 10px;
+    color: #ffffff;
+}
