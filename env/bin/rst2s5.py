@@ -1,4 +1,4 @@
-#!/home/thongcute/Desktop/odoo-15.0/env/bin/python3
+#!/home/thongcute/Desktop/odoo_test/env/bin/python
 
 # $Id: rst2s5.py 4564 2006-05-21 20:44:42Z wiemann $
 # Author: Chris Liechti <cliechti@gmx.net>

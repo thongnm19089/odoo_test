@@ -1,4 +1,4 @@
-#!/home/thongcute/Desktop/odoo-15.0/env/bin/python3
+#!/home/thongcute/Desktop/odoo_test/env/bin/python
 
 # $Id: rst2html4.py 7994 2016-12-10 17:41:45Z milde $
 # Author: David Goodger <goodger@python.org>

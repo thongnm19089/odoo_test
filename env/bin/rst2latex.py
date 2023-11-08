@@ -1,4 +1,4 @@
-#!/home/thongcute/Desktop/odoo-15.0/env/bin/python3
+#!/home/thongcute/Desktop/odoo_test/env/bin/python
 
 # $Id: rst2latex.py 5905 2009-04-16 12:04:49Z milde $
 # Author: David Goodger <goodger@python.org>

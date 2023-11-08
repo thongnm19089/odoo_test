@@ -50,13 +50,7 @@
     <field name="arch" type="xml">
        <search>
           <field name="tac_gia" />
-          <!-- <field name="class_id" widget="many2one" /> -->
-          <!-- <filter name="ftr_student_score" string="score"
-             domain="[('student_score', '>', 0)]" /> -->
-          <!-- <group expand="0" string="Group By">
-             <filter string="Country" name="ftr_country"
-                context="{'group_by':'country_id'}" />
-          </group> -->
+  
        </search>
     </field>
  </record>
@@ -64,8 +58,6 @@
   <record id="action_teamplate" model="ir.actions.act_window">
     <field name="name">db_sach</field>
     <field name="res_model">db_sach</field>
-    <!-- <field name="search_view_id" ref="s" /> -->
-
   </record>
   <menuitem id="menu_item_1" name="Sach Manager" action="action_teamplate" />
 
