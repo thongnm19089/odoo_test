@@ -1,23 +1,36 @@
-<odoo>
-    <!-- Define the access control entries for the 'quanlysach_manager' group -->
+<!-- <odoo>
     <record id="access_quanlysach_manager" model="ir.model.access">
         <field name="name">quanlysach_manager</field>
         <field name="model_id" ref="model_db_sach"/>
-        <field name="group_id" ref="quanlysach_quanlysach_manager"/>
+        <field name="group_id" ref="db_sach_group_user"/>
         <field name="perm_read" eval="1"/>
         <field name="perm_write" eval="1"/>
         <field name="perm_create" eval="1"/>
         <field name="perm_unlink" eval="1"/>
     </record>
 
-    <!-- Define the access control entries for the 'quanlysach_user' group -->
     <record id="access_quanlysach_user" model="ir.model.access">
         <field name="name">quanlysach_user</field>
         <field name="model_id" ref="model_db_sach"/>
-        <field name="group_id" ref="quanlysach_quanlysach_user"/>
+        <field name="group_id" ref="db_sach_group_user"/>
         <field name="perm_read" eval="1"/>
         <field name="perm_write" eval="0"/>
         <field name="perm_create" eval="0"/>
         <field name="perm_unlink" eval="0"/>
     </record>
+</odoo> -->
+<odoo>
+<record id="education_school_rule_user" model="ir.rule">
+    <field name="name">School: Only see the school is not private</field>
+    <field name="model_id" ref="model_db_sach" />
+    <field name="groups" eval="[(4, ref('quanlysach.group_manager'))]" />
+    <field name="domain_force">[('tac_gia', '=', False )]</field>
+</record>
+
+<record id="education_school_rule_admin" model="ir.rule">
+    <field name="name">School: See all schools</field>
+    <field name="model_id" ref="model_db_sach" />
+    <field name="groups" eval="[(4, ref('quanlysach.group_manager'))]" />
+    <field name="domain_force">[(1, '=', 1)]</field>
+</record>
 </odoo>

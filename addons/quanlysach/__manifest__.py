@@ -24,12 +24,12 @@
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
-        'security/sach_security.xml',
+        # 'security/ir.model.access.csv',
+        # 'security/sach_security.xml',
 
         # 'views/views.xml',
         'views/to_do_list.xml',
-        '/home/thongcute/Desktop/odoo-15.0/addons/quanlysach/static/src/css/custom_styles.css',
+        # '/home/thongcute/Desktop/odoo-15.0/addons/quanlysach/static/src/css/custom_styles.css',
     ],
     # only loaded in demonstration mode
     'demo': [

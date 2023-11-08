@@ -1,5 +1,5 @@
 <odoo>
-  
+
   <record model="ir.ui.view" id="quanlysach_list">
     <field name="name">db_sach.tree</field>
     <field name="model">db_sach</field>
@@ -26,38 +26,47 @@
 
           </div>
           <div class="custom-background">
-          <group>
-            <h2> Sách được sáng tác bới: <field name="tac_gia" /></h2>
-          </group>
-          <group>
             <group>
-              <field name="ten_sach" />
-              <field name="ngay_xuat_ban" />
+              <h2> Sách được sáng tác bới: <field name="tac_gia" /></h2>
             </group>
             <group>
-              <field name="the_loai" />
-              <!-- <field name="tac_gia" /> -->
-              <field name="mo_ta" />
-
+              <group>
+                <field name="ten_sach" />
+                <field name="ngay_xuat_ban" />
+              </group>
+              <group>
+                <field name="the_loai" />
+                <field name="mo_ta" />
+              </group>
             </group>
-            <!-- <notebook>
-                  <page string="Description">
-                    <field name="the_loai" />
-                  </page>
-                </notebook> -->
-          </group>
-        </div>
+          </div>
         </sheet>
       </form>
     </field>
   </record>
 
+  <record id="education_student_view_search" model="ir.ui.view">
+    <field name="model">db_sach</field>
+    <field name="arch" type="xml">
+       <search>
+          <field name="tac_gia" />
+          <!-- <field name="class_id" widget="many2one" /> -->
+          <!-- <filter name="ftr_student_score" string="score"
+             domain="[('student_score', '>', 0)]" /> -->
+          <!-- <group expand="0" string="Group By">
+             <filter string="Country" name="ftr_country"
+                context="{'group_by':'country_id'}" />
+          </group> -->
+       </search>
+    </field>
+ </record>
+
   <record id="action_teamplate" model="ir.actions.act_window">
     <field name="name">db_sach</field>
     <field name="res_model">db_sach</field>
-    <!-- <field name="view_model">form,tree</field> -->
+    <!-- <field name="search_view_id" ref="s" /> -->
+
   </record>
-  <!-- <menuitem id="menu_item" name="Menu Item" /> -->
   <menuitem id="menu_item_1" name="Sach Manager" action="action_teamplate" />
 
 
