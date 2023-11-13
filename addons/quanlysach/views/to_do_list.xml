@@ -31,6 +31,7 @@
             </group>
             <group>
               <group>
+                <!-- <field name="tac_gia" /> -->
                 <field name="ten_sach" />
                 <field name="ngay_xuat_ban" />
               </group>
