@@ -6,6 +6,7 @@
     <field name="arch" type="xml">
       <tree>
         <field name="name" />
+        <field name="phone" />
         <field name="card_number" />
       </tree>
     </field>
@@ -14,13 +15,21 @@
     <field name="name">Library Member Form View</field>
     <field name="model">library.member</field>
     <field name="arch" type="xml">
+      <header>
+        <button name = "button_test" string = "button test" type = "object"></button>
+      </header>
+
       <form>
         <group>
-          <field name="name" />
+          <field name="name"  />
           <field name="email" />
           <field name="phone" />
           <field name="card_number" />
+         
+          <button name = "test" string = "button test 2" class ="oe_highlight" type = "object"></button>
+      
         </group>
+        
         <div class="oe_chatter">
           <field name="message_follower_ids" widget="mail_followers" />
           <field name="activity_ids" widget="mail_activity" />

@@ -12,6 +12,7 @@
         "security/ir.model.access.csv",
         "views/book_view.xml",
         "views/book_list_template.xml",
+        "data/book_demo.xml",
     ],
     "category": "Services/Library",
     "application": True,

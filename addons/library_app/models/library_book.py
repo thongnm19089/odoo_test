@@ -1,18 +1,56 @@
 from odoo import fields, models
 from odoo.exceptions import ValidationError
 
+
 class Book(models.Model):
     _name = "library.book"
     _description = "Book"
 
-    name = fields.Char("Title", required=True)
+    _description = "Book"
+    # String fields:
+    name = fields.Char(
+        "Title",
+        default=None,
+        help="Book cover title.",
+        readonly=False,
+        required=True,
+        index=True,
+        copy=False,
+        deprecated=True,
+        groups="",
+        states={},
+    )
     isbn = fields.Char("ISBN")
-    active = fields.Boolean("Active?", default=True)
+    book_type = fields.Selection(
+        [
+            ("paper", "Paperback"),
+            ("hard", "Hardcover"),
+            ("electronic", "Electronic"),
+            ("other", "Other"),
+        ],
+        "Type",
+    )
+    notes = fields.Text("Internal Notes")
+    descr = fields.Html("Description")
+    # Numeric fields:
+    copies = fields.Integer(default=1)
+    avg_rating = fields.Float("Average Rating", (3, 2))
+    price = fields.Monetary("Price", "currency_id")
+    # price helper
+    currency_id = fields.Many2one("res.currency")
+    # Date and time fields:
     date_published = fields.Date()
+    last_borrow_date = fields.Datetime(
+        "Last Borrowed On", default=lambda self: fields.Datetime.now()
+    )
+    # Other fields:
+    active = fields.Boolean("Active?")
     image = fields.Binary("Cover")
+    # Relational Fields
     publisher_id = fields.Many2one("res.partner", string="Publisher")
     author_ids = fields.Many2many("res.partner", string="Authors")
-    
+
+    last_borrow_date = fields.Datetime("Last Borrowed On",default=lambda self: fields.Datetime.now(),)
     
     def _check_isbn(self):
         self.ensure_one()
@@ -23,7 +61,7 @@ class Book(models.Model):
         remain = sum(terms) % 10
         check = 10 - remain if remain != 0 else 0
         return digits[-1] == check
-    
+
     def button_check_isbn(self):
         for book in self:
             if not book.isbn:
@@ -31,3 +69,8 @@ class Book(models.Model):
             if book.isbn and not book._check_isbn():
                 raise ValidationError("%s ISBN is invalid" % book.isbn)
         return True
+    def _default_last_borrow_date(self):
+        return fields.Datetime.now()
+    # last_borrow_date = fields.Datetime("Last Borrowed On",default=_default_last_borrow_date,)
+
+    
