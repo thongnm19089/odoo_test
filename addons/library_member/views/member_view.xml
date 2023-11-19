@@ -13,11 +13,8 @@
   </record>
   <record id="view_form_member" model="ir.ui.view">
     <field name="name">Library Member Form View</field>
-    <field name="model">library.member</field>
+    <field name="model">library.member</field>  
     <field name="arch" type="xml">
-      <header>
-        <button name = "button_test" string = "button test" type = "object"></button>
-      </header>
 
       <form>
         <group>
@@ -26,7 +23,7 @@
           <field name="phone" />
           <field name="card_number" />
          
-          <button name = "test" string = "button test 2" class ="oe_highlight" type = "object"></button>
+          <!-- <button name = "test" string = "button test 2" class ="oe_highlight" type = "object"></button> -->
       
         </group>
         

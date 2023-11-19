@@ -5,8 +5,8 @@
         <xpath expr="//span[@t-field='book.publisher_id']"
             position="after">
             <t t-if="not book.is_available">
-                <b>(Not Available)</b>
+                <b>(null)</b>
             </t>
         </xpath>
     </template>
-</odoo>
+</odoo> 
