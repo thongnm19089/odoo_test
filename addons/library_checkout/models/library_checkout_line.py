@@ -8,7 +8,5 @@ class CheckoutLine(models.Model):
         "library.checkout",
         required=True,
     )
-
-
     book_id = fields.Many2one("library.book", required=True)
     note = fields.Char("Notes")

@@ -102,7 +102,7 @@
                             </group>
                         </group>
                         <notebook>
-                            <page name="public" string="Work Information">
+                            <page name="public" string="Thông tin công việc">
                                 <div id="o_work_employee_container"> <!-- These two div are used to position org_chart -->
                                     <div id="o_work_employee_main">
                                         <group string="Location">
@@ -203,6 +203,7 @@
                                     <group name="application_group"/>
                                 </group>
                             </page>
+                            <page name="public" string="testttt">ạgdhagsdjas</page>
                         </notebook>
 
                     </sheet>
