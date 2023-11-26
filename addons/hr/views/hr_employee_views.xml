@@ -237,6 +237,9 @@
                     <field name="coach_id" invisible="1"/>
                     <field name="active" invisible="1"/>
                     <field name="category_ids" widget="many2many_tags" options="{'color_field': 'color'}" optional="hide"/>
+                    
+                        <button string="Export to Excel" type="object" name="generate_excel_report"/>
+                    
                 </tree>
             </field>
         </record>

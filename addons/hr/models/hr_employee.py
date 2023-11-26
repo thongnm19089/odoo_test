@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-
+import base64
+import io
 import pytz
 from datetime import datetime, time
 from dateutil.rrule import rrule, DAILY
@@ -16,6 +17,7 @@ from odoo.exceptions import ValidationError, AccessError, UserError
 from odoo.osv import expression
 from odoo.tools.misc import format_date
 
+import xlsxwriter
 
 class HrEmployeePrivate(models.Model):
     """
@@ -470,4 +472,65 @@ class HrEmployeePrivate(models.Model):
 
     def _sms_get_number_fields(self):
         return ['mobile_phone']
+    def test(self):
+        print("testttttttttttttttttttttttt")
+    def generate_excel_report(self):
+        # Your logic to fetch data from hr.employee model
+        employee_data = self.env['hr.employee'].search([])
+
+        # Create Excel workbook and worksheet
+        workbook = xlsxwriter.Workbook('/home/thongcute/Desktop/odoo-15.0/report/a.xlsx')
+        worksheet = workbook.add_worksheet()
+
+        # Add headers
+        headers = ['Name', 'Job Position', 'Department']
+        for col_num, header in enumerate(headers):
+            worksheet.write(0, col_num, header)
+
+        # Add data
+        department_data = {}
+        for employee in employee_data:
+            department_name = employee.department_id.name
+            if department_name not in department_data:
+                department_data[department_name] = []
+            department_data[department_name].append(employee)
+
+        # Add data
+        row_num = 1
+        for department_name, employees_in_department in department_data.items():
+            worksheet.write(row_num, 0, department_name)
+            row_num += 1
+            for employee in employees_in_department:
+                worksheet.write(row_num, 0, employee.name)
+                worksheet.write(row_num, 1, employee.job_id.name)
+                worksheet.write(row_num, 2, employee.department_id.name)
+                row_num += 1
+
+        # Save the workbook
+        # output = io.BytesIO()
+        workbook.close()
+        # output.seek(0)
+
+        # Encode the workbook content in base64
+        # excel_file = base64.b64encode(output.read())
+
+        # # Set the filename for the download
+        # filename = 'exported_file.xlsx'
+
+        # # Create a download link and trigger the download
+        # download_link = (
+        #     '<a download="{}" href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{}">Download Excel File</a>'
+        # ).format(filename, excel_file.decode())
+
+        # return {
+        #     'type': 'ir.actions.client',
+        #     'tag': 'display_notification',
+        #     'params': {
+        #         'title': 'Excel Report',
+        #         'message': download_link,
+        #         'sticky': False,
+        #     },
+        # }
+        
+       
 
